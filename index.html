@@ -14,9 +14,10 @@
     --muted: #6b6b72;
     --line: #e6e6ea;
     --accent: #3452e0;
+    --accent-soft: #eef1fd;
     --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
     --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-    --maxw: 920px;
+    --maxw: 960px;
   }
 
   * { box-sizing: border-box; }
@@ -30,6 +31,7 @@
     font-family: var(--sans);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   .wrap{
@@ -39,29 +41,50 @@
   }
 
   header.hero{
-    padding: 110px 0 72px;
+    position: relative;
+    padding: 108px 0 76px;
     border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  header.hero::before{
+    content: "";
+    position: absolute;
+    top: -220px;
+    right: -160px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(52,82,224,0.14), rgba(52,82,224,0) 70%);
+    pointer-events: none;
   }
 
   .eyebrow{
+    display: inline-block;
     font-family: var(--mono);
-    font-size: 12.5px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 0 0 20px;
+    background: var(--accent-soft);
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 0 0 22px;
     font-weight: 600;
   }
 
   h1{
-    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
     margin: 0 0 16px;
     letter-spacing: -0.03em;
-    font-weight: 600;
+    font-weight: 700;
+    position: relative;
   }
 
+  h1 .dot{ color: var(--accent); }
+
   .bio{
-    font-size: 1.08rem;
+    font-size: 1.1rem;
     color: var(--muted);
     max-width: 50ch;
     margin: 0;
@@ -72,108 +95,158 @@
   }
 
   section.project{
-    padding: 64px 0;
+    position: relative;
+    padding: 72px 0;
     border-bottom: 1px solid var(--line);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-
-  section.project.reverse .project-media{
-    order: 2;
   }
 
   .index-no{
     font-family: var(--mono);
-    font-size: 13px;
-    color: var(--muted);
-    margin: 0 0 14px;
-    letter-spacing: 0.02em;
+    font-weight: 700;
+    font-size: clamp(4rem, 12vw, 7rem);
+    line-height: 1;
+    color: var(--accent-soft);
+    margin: 0 0 -18px;
+    letter-spacing: -0.04em;
+    user-select: none;
   }
 
   .project-copy h2{
-    font-size: 1.45rem;
+    font-size: 1.7rem;
     margin: 0 0 14px;
     letter-spacing: -0.01em;
-    font-weight: 600;
+    font-weight: 700;
+    max-width: 24ch;
   }
 
   .project-copy p{
     color: var(--muted);
     margin: 0 0 24px;
-    font-size: 1rem;
+    font-size: 1.02rem;
+    max-width: 62ch;
   }
 
   .stack{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0;
+    gap: 8px;
     padding: 0;
     margin: 0 0 28px;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    color: var(--muted);
   }
 
   .stack li{
-    padding-right: 12px;
-    margin-right: 12px;
-    border-right: 1px solid var(--line);
-  }
-
-  .stack li:last-child{
-    border-right: none;
-    padding-right: 0;
-    margin-right: 0;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
   }
 
   .repo-link{
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--accent);
+    color: var(--ink);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.92rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 3px;
   }
 
   .repo-link .arrow{
+    color: var(--accent);
     transition: transform 0.15s ease;
   }
 
   .repo-link:hover .arrow{ transform: translate(3px, -3px); }
 
-  .project-media{
+  /* Screenshot filmstrip */
+  .filmstrip{
+    margin-top: 44px;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 16px;
+    gap: 0;
+    padding: 20px 0 30px;
   }
 
-  .phone-shot{
-    width: 100%;
-    max-width: 180px;
+  .filmstrip img{
+    width: 168px;
+    flex-shrink: 0;
     border: 1px solid var(--line);
-    display: block;
+    border-radius: 2px;
+    box-shadow: 0 16px 30px -18px rgba(17,17,20,0.35);
+    background: #fff;
+    margin-left: -34px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+    position: relative;
   }
 
-  .phone-shot:nth-child(2){
-    margin-top: 40px;
+  .filmstrip img:first-child{ margin-left: 0; }
+
+  .filmstrip img:nth-child(1){ transform: rotate(-6deg); }
+  .filmstrip img:nth-child(2){ transform: rotate(4deg) translateY(14px); }
+  .filmstrip img:nth-child(3){ transform: rotate(-3deg) translateY(-10px); }
+  .filmstrip img:nth-child(4){ transform: rotate(6deg) translateY(6px); }
+
+  .filmstrip img:hover{
+    transform: rotate(0deg) translateY(-8px) scale(1.08);
+    z-index: 5;
+    box-shadow: 0 24px 40px -16px rgba(17,17,20,0.4);
+  }
+
+  /* Micro Walk visual */
+  .walk-visual{
+    margin-top: 44px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
   }
 
   .illustration{
-    width: 100%;
-    max-width: 260px;
-    aspect-ratio: 1 / 1;
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .ring-progress{
+    transform-origin: 100px 100px;
+    animation: spin 7s linear infinite;
+  }
+
+  @keyframes spin{
+    to{ transform: rotate(270deg); }
+  }
+
+  .stat-row{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .stat{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-family: var(--mono);
+  }
+
+  .stat .num{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .stat .label{
+    font-size: 0.85rem;
+    color: var(--muted);
   }
 
   footer{
-    padding: 48px 0 90px;
+    padding: 52px 0 96px;
   }
 
   footer p{
@@ -184,24 +257,28 @@
 
   .cv-link{
     display: inline-block;
-    color: var(--accent);
+    color: var(--ink);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.98rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
   }
 
-  .cv-link:hover{ text-decoration: underline; }
+  .cv-link:hover{ color: var(--accent); }
 
   @media (max-width: 700px){
-    header.hero{ padding: 72px 0 44px; }
-    section.project,
-    section.project.reverse{
-      grid-template-columns: 1fr;
-      padding: 44px 0;
-      gap: 28px;
+    header.hero{ padding: 76px 0 48px; }
+    section.project{ padding: 52px 0; }
+    .filmstrip{
+      overflow-x: auto;
+      padding-bottom: 16px;
     }
-    section.project.reverse .project-media{ order: 0; }
-    .project-media{ order: -1; }
+    .filmstrip img{
+      margin-left: -20px;
+      box-shadow: 0 10px 20px -14px rgba(17,17,20,0.35);
+    }
+    .walk-visual{ gap: 28px; }
   }
 </style>
 </head>
@@ -210,7 +287,7 @@
 <div class="wrap">
   <header class="hero">
     <p class="eyebrow">Portfolio</p>
-    <h1>M-Dahl</h1>
+    <h1>M-Dahl<span class="dot">.</span></h1>
     <p class="bio">Engineer working at the intersection of technology, design, and business — building products from idea to working app.</p>
   </header>
 </div>
@@ -218,8 +295,8 @@
 <main class="wrap">
 
   <section class="project">
+    <p class="index-no">01</p>
     <div class="project-copy">
-      <p class="index-no">01</p>
       <h2>Journal Onboarding</h2>
       <p>A mobile onboarding flow for a journaling app, built with React Native and Expo. Focused on a calm, text-driven experience that ties together form handling, navigation, and backend integration with Supabase into one coherent flow.</p>
       <ul class="stack">
@@ -233,15 +310,17 @@
         View on GitHub <span class="arrow">↗</span>
       </a>
     </div>
-    <div class="project-media">
-      <img class="phone-shot" src="assets/img/journal-1.png" alt="Journal Onboarding – the screen where the user enters their name">
-      <img class="phone-shot" src="assets/img/journal-2.png" alt="Journal Onboarding – the reflection screen">
+    <div class="filmstrip">
+      <img src="assets/img/journal-0.png" alt="Journal Onboarding – sign up screen">
+      <img src="assets/img/journal-1.png" alt="Journal Onboarding – name screen">
+      <img src="assets/img/journal-3.png" alt="Journal Onboarding – frequency screen">
+      <img src="assets/img/journal-2.png" alt="Journal Onboarding – reflection screen">
     </div>
   </section>
 
-  <section class="project reverse">
+  <section class="project">
+    <p class="index-no">02</p>
     <div class="project-copy">
-      <p class="index-no">02</p>
       <h2>Micro Walk — Step Counter</h2>
       <p>An iOS feature built with Expo/React Native: a live, HealthKit-backed step counter paired with a guided 2-minute walk featuring an animated figure, a progress ring, and a Lock Screen / Dynamic Island activity that ticks down natively. Everything runs on-device, with no backend at all.</p>
       <ul class="stack">
@@ -256,11 +335,11 @@
         View on GitHub <span class="arrow">↗</span>
       </a>
     </div>
-    <div class="project-media">
+    <div class="walk-visual">
       <svg class="illustration" viewBox="0 0 200 200" fill="none">
         <circle cx="100" cy="100" r="88" stroke="#e6e6ea" stroke-width="10"/>
-        <circle cx="100" cy="100" r="88" stroke="#3452e0" stroke-width="10" stroke-linecap="round"
-                stroke-dasharray="553" stroke-dashoffset="150" transform="rotate(-90 100 100)"/>
+        <circle class="ring-progress" cx="100" cy="100" r="88" stroke="#3452e0" stroke-width="10" stroke-linecap="round"
+                stroke-dasharray="553" stroke-dashoffset="380" transform="rotate(-90 100 100)"/>
         <g transform="translate(100 108)" stroke="#111114" stroke-width="7" stroke-linecap="round" fill="none">
           <circle cx="0" cy="-46" r="7" fill="#111114" stroke="none"/>
           <path d="M0 -34 L0 -8 L-16 26"/>
@@ -269,6 +348,11 @@
           <path d="M0 -20 L20 -4"/>
         </g>
       </svg>
+      <div class="stat-row">
+        <div class="stat"><span class="num">2 min</span><span class="label">guided walk</span></div>
+        <div class="stat"><span class="num">0</span><span class="label">network calls</span></div>
+        <div class="stat"><span class="num">100%</span><span class="label">on-device</span></div>
+      </div>
     </div>
   </section>
 
