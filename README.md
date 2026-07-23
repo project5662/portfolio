@@ -1,20 +1,20 @@
 # M-Dahl — Portfolio
 
-Enkel, statisk one-page portfolio-sajt. Ren HTML/CSS, ingen build-process.
+Simple, static one-page portfolio site. Plain HTML/CSS, no build process.
 
-Publiceras via GitHub Pages från `main`-grenens root (`index.html`).
+Published via GitHub Pages from the root of the `main` branch (`index.html`).
 
-## Struktur
+## Structure
 
-- `index.html` — hela sajten
-- `assets/img/` — skärmdumpar från projekten
+- `index.html` — the whole site
+- `assets/img/` — screenshots from the projects
 
-## Lokal förhandsgranskning
+## Local preview
 
-Öppna `index.html` direkt i webbläsaren, eller kör:
+Open `index.html` directly in a browser, or run:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-och besök `http://localhost:8000`.
+and visit `http://localhost:8000`.
