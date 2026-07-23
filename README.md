@@ -1,4 +1,4 @@
-# Manfred Dahl — Portfolio
+# M-Dahl — Portfolio
 
 Enkel, statisk one-page portfolio-sajt. Ren HTML/CSS, ingen build-process.
 
