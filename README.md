@@ -1,13 +1,18 @@
 # M-Dahl — Portfolio
 
-Simple, static one-page portfolio site. Plain HTML/CSS, no build process.
+Simple, static portfolio site split by project category. Plain HTML/CSS, no build process.
 
-Published via GitHub Pages from the root of the `main` branch (`index.html`).
+Published via GitHub Pages from the root of the `main` branch.
 
 ## Structure
 
-- `index.html` — the whole site
-- `assets/img/` — screenshots from the projects
+- `index.html` — landing page with name, bio, and category links
+- `app.html` — App category projects (Journal Onboarding, Micro Walk)
+- `assets/css/style.css` — shared styles for all pages
+- `assets/img/` — screenshots
+- `assets/video/` — demo recordings
+
+New categories (e.g. ML) get their own `<category>.html` page, linked from the `.categories` nav in `index.html`.
 
 ## Local preview
 
