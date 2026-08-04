@@ -110,6 +110,15 @@ h1{
   margin: 0 0 32px;
 }
 
+.section-label{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
 .categories{
   display: flex;
   gap: 10px;
@@ -337,28 +346,6 @@ section.project{
   font-size: 0.72rem;
   color: var(--muted);
 }
-
-footer{
-  padding: 52px 0 96px;
-}
-
-footer p{
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin: 0 0 12px;
-}
-
-.cv-link{
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--ink);
-  border-bottom: 2px solid var(--accent);
-  padding: 4px 0 5px;
-}
-
-.cv-link:hover{ opacity: 0.6; }
 
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
