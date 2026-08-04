@@ -92,6 +92,15 @@
     font-weight: 700;
   }
 
+  .credentials{
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    max-width: 46ch;
+    margin: 0 0 18px;
+  }
+
   .bio{
     font-size: 1.1rem;
     color: var(--muted);
@@ -262,15 +271,23 @@
     flex-shrink: 0;
   }
 
-  .media-row img,
-  .media-row video{
-    width: 100%;
-    height: auto;
-    display: block;
+  .media-frame{
+    width: 168px;
+    aspect-ratio: 9 / 18;
+    overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 2px;
     box-shadow: 0 10px 20px -16px rgba(17,17,20,0.25);
     background: #000;
+  }
+
+  .media-frame img,
+  .media-frame video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
   }
 
   .media-row figcaption{
@@ -322,7 +339,8 @@
   <header class="hero">
     <p class="eyebrow">Portfolio</p>
     <h1>M-Dahl.</h1>
-    <p class="bio">Engineer interested in the intersection of technology, design, and business — building products from idea to working app.</p>
+    <p class="credentials">M.Sc. in Media Technology, KTH Royal Institute of Technology — B.Sc. Media Technology, M.Sc. Machine Learning</p>
+    <p class="bio">Interested in the space where people, technology, and design meet — building products from idea to working app.</p>
   </header>
 </div>
 
@@ -378,17 +396,23 @@
     </div>
     <div class="media-row">
       <figure>
-        <video width="678" height="1196" src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
-          Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
-        </video>
+        <div class="media-frame">
+          <video src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
+            Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
+          </video>
+        </div>
         <figcaption>In-app guided walk</figcaption>
       </figure>
       <figure>
-        <video width="888" height="1920" src="assets/video/micro-walk-lockscreen.mp4" poster="assets/video/micro-walk-lockscreen-poster.jpg" controls preload="metadata" playsinline muted></video>
+        <div class="media-frame">
+          <video src="assets/video/micro-walk-lockscreen.mp4" poster="assets/video/micro-walk-lockscreen-poster.jpg" controls preload="metadata" playsinline muted></video>
+        </div>
         <figcaption>Live Activity on the Lock Screen</figcaption>
       </figure>
       <figure>
-        <img src="assets/img/walk-lockscreen.jpg" width="239" height="480" alt="Lock Screen notification: Micro walk complete, nice work — your walk is done">
+        <div class="media-frame">
+          <img src="assets/img/walk-lockscreen.jpg" alt="Lock Screen notification: Micro walk complete, nice work — your walk is done">
+        </div>
         <figcaption>Completion notification</figcaption>
       </figure>
     </div>
