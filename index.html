@@ -206,19 +206,14 @@
     flex-wrap: wrap;
   }
 
-  .illustration{
-    width: 200px;
-    height: 200px;
+  .demo-video{
+    width: 190px;
     flex-shrink: 0;
-  }
-
-  .ring-progress{
-    transform-origin: 100px 100px;
-    animation: spin 7s linear infinite;
-  }
-
-  @keyframes spin{
-    to{ transform: rotate(270deg); }
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    box-shadow: 0 16px 30px -18px rgba(17,17,20,0.35);
+    background: #000;
   }
 
   .stat-row{
@@ -288,7 +283,7 @@
   <header class="hero">
     <p class="eyebrow">Portfolio</p>
     <h1>M-Dahl<span class="dot">.</span></h1>
-    <p class="bio">Engineer working at the intersection of technology, design, and business — building products from idea to working app.</p>
+    <p class="bio">Engineer interested in the intersection of technology, design, and business — building products from idea to working app.</p>
   </header>
 </div>
 
@@ -336,18 +331,9 @@
       </a>
     </div>
     <div class="walk-visual">
-      <svg class="illustration" viewBox="0 0 200 200" fill="none">
-        <circle cx="100" cy="100" r="88" stroke="#e6e6ea" stroke-width="10"/>
-        <circle class="ring-progress" cx="100" cy="100" r="88" stroke="#3452e0" stroke-width="10" stroke-linecap="round"
-                stroke-dasharray="553" stroke-dashoffset="380" transform="rotate(-90 100 100)"/>
-        <g transform="translate(100 108)" stroke="#111114" stroke-width="7" stroke-linecap="round" fill="none">
-          <circle cx="0" cy="-46" r="7" fill="#111114" stroke="none"/>
-          <path d="M0 -34 L0 -8 L-16 26"/>
-          <path d="M0 -8 L16 30"/>
-          <path d="M0 -20 L-18 -6"/>
-          <path d="M0 -20 L20 -4"/>
-        </g>
-      </svg>
+      <video class="demo-video" src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
+        Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
+      </video>
       <div class="stat-row">
         <div class="stat"><span class="num">2 min</span><span class="label">guided walk</span></div>
         <div class="stat"><span class="num">0</span><span class="label">network calls</span></div>
