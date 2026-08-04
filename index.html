@@ -216,52 +216,41 @@
   }
 
   /* Micro Walk visual */
-  .walk-visual{
-    margin-top: 44px;
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .demo-video{
-    width: 190px;
-    height: auto;
-    flex-shrink: 0;
-    display: block;
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    box-shadow: 0 14px 26px -18px rgba(17,17,20,0.3);
-    background: #000;
-  }
-
   .stat-row{
     display: flex;
-    flex-direction: column;
-    gap: 14px;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: 0 0 28px;
+    font-family: var(--mono);
   }
 
   .stat{
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    font-family: var(--mono);
+    gap: 8px;
+    padding-right: 24px;
+    border-right: 1px solid var(--line);
+  }
+
+  .stat:last-child{
+    padding-right: 0;
+    border-right: none;
   }
 
   .stat .num{
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--accent);
     font-variant-numeric: tabular-nums;
   }
 
   .stat .label{
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--muted);
   }
 
   .media-row{
-    margin-top: 28px;
+    margin-top: 44px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -324,7 +313,6 @@
     header.hero{ padding: 76px 0 48px; }
     section.project{ padding: 52px 0; }
     .index-no{ top: 52px; }
-    .walk-visual{ gap: 28px; }
   }
 </style>
 </head>
@@ -383,20 +371,21 @@
         View on GitHub <span class="arrow">↗</span>
       </a>
     </div>
-    <div class="walk-visual">
-      <video class="demo-video" width="678" height="1196" src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
-        Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
-      </video>
-      <div class="stat-row">
-        <div class="stat"><span class="num">2 min</span><span class="label">guided walk</span></div>
-        <div class="stat"><span class="num">0</span><span class="label">network calls</span></div>
-        <div class="stat"><span class="num">100%</span><span class="label">on-device</span></div>
-      </div>
+    <div class="stat-row">
+      <div class="stat"><span class="num">2 min</span><span class="label">guided walk</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">network calls</span></div>
+      <div class="stat"><span class="num">100%</span><span class="label">on-device</span></div>
     </div>
     <div class="media-row">
       <figure>
+        <video width="678" height="1196" src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
+          Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
+        </video>
+        <figcaption>In-app guided walk</figcaption>
+      </figure>
+      <figure>
         <video width="888" height="1920" src="assets/video/micro-walk-lockscreen.mp4" poster="assets/video/micro-walk-lockscreen-poster.jpg" controls preload="metadata" playsinline muted></video>
-        <figcaption>Live Activity ticking down on the Lock Screen</figcaption>
+        <figcaption>Live Activity on the Lock Screen</figcaption>
       </figure>
       <figure>
         <img src="assets/img/walk-lockscreen.jpg" width="239" height="480" alt="Lock Screen notification: Micro walk complete, nice work — your walk is done">
