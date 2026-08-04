@@ -9,12 +9,12 @@
 <link rel="icon" href="data:,">
 <style>
   :root{
-    --bg: #ffffff;
-    --ink: #111114;
-    --muted: #6b6b72;
-    --line: #e6e6ea;
-    --accent: #3452e0;
-    --accent-soft: #eef1fd;
+    --bg: #fdfdfc;
+    --ink: #121214;
+    --muted: #6c6c74;
+    --line: #e7e7ea;
+    --accent: #121214;
+    --accent-soft: #f0f0f1;
     --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
     --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
     --maxw: 960px;
@@ -41,36 +41,32 @@
   }
 
   header.hero{
-    position: relative;
     padding: 108px 0 76px;
     border-bottom: 1px solid var(--line);
-    overflow: hidden;
-  }
-
-  header.hero::before{
-    content: "";
-    position: absolute;
-    top: -220px;
-    right: -160px;
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(52,82,224,0.14), rgba(52,82,224,0) 70%);
-    pointer-events: none;
   }
 
   .eyebrow{
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-soft);
+    color: var(--muted);
+    border: 1px solid var(--line);
     padding: 5px 10px;
-    border-radius: 4px;
-    margin: 0 0 22px;
+    border-radius: 999px;
+    margin: 0 0 24px;
     font-weight: 600;
+  }
+
+  .eyebrow::before{
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6f4fe0, #ff5a2b);
   }
 
   h1{
@@ -78,10 +74,7 @@
     margin: 0 0 16px;
     letter-spacing: -0.03em;
     font-weight: 700;
-    position: relative;
   }
-
-  h1 .dot{ color: var(--accent); }
 
   .bio{
     font-size: 1.1rem;
@@ -95,19 +88,34 @@
   }
 
   section.project{
+    --accent: #121214;
+    --accent-soft: #f0f0f1;
     position: relative;
     padding: 72px 0;
     border-bottom: 1px solid var(--line);
   }
 
+  section.project::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 28px;
+    width: 44px;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  section.journal{ --accent: #6f4fe0; --accent-soft: #f1ecfd; }
+  section.walk{ --accent: #ff5a2b; --accent-soft: #ffece2; }
+
   .index-no{
     font-family: var(--mono);
     font-weight: 700;
-    font-size: clamp(4rem, 12vw, 7rem);
+    font-size: clamp(3.2rem, 8vw, 5rem);
     line-height: 1;
     color: var(--accent-soft);
-    margin: 0 0 -18px;
-    letter-spacing: -0.04em;
+    margin: 28px 0 -8px;
+    letter-spacing: -0.03em;
     user-select: none;
   }
 
@@ -256,15 +264,16 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 1.05rem;
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 2px solid var(--ink);
     padding-bottom: 2px;
   }
 
-  .cv-link:hover{ color: var(--accent); }
+  .cv-link:hover{ opacity: 0.6; }
 
   @media (max-width: 700px){
     header.hero{ padding: 76px 0 48px; }
     section.project{ padding: 52px 0; }
+    section.project::before{ left: 28px; }
     .filmstrip{
       overflow-x: auto;
       padding-bottom: 16px;
@@ -282,14 +291,14 @@
 <div class="wrap">
   <header class="hero">
     <p class="eyebrow">Portfolio</p>
-    <h1>M-Dahl<span class="dot">.</span></h1>
+    <h1>M-Dahl.</h1>
     <p class="bio">Engineer interested in the intersection of technology, design, and business — building products from idea to working app.</p>
   </header>
 </div>
 
 <main class="wrap">
 
-  <section class="project">
+  <section class="project journal">
     <p class="index-no">01</p>
     <div class="project-copy">
       <h2>Journal Onboarding</h2>
@@ -313,7 +322,7 @@
     </div>
   </section>
 
-  <section class="project">
+  <section class="project walk">
     <p class="index-no">02</p>
     <div class="project-copy">
       <h2>Micro Walk — Step Counter</h2>
