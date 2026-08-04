@@ -6,15 +6,18 @@
 <title>M-Dahl — Portfolio</title>
 <meta name="description" content="Portfolio featuring selected mobile app projects by M-Dahl.">
 <meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="data:,">
 <style>
   :root{
-    --bg: #fdfdfc;
+    --bg: #fbfbf9;
+    --grid-line: rgba(18,18,20,0.045);
     --ink: #121214;
-    --muted: #6c6c74;
-    --line: #e7e7ea;
+    --muted: #656569;
+    --line: #e4e4e1;
     --accent: #121214;
     --accent-soft: #f0f0f1;
+    --accent-wash: rgba(18,18,20,0.03);
     --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
     --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
     --maxw: 960px;
@@ -26,12 +29,24 @@
 
   body{
     margin: 0;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 34px 34px;
     color: var(--ink);
     font-family: var(--sans);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+  }
+
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   .wrap{
@@ -54,6 +69,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
+    background: rgba(251,251,249,0.7);
     border: 1px solid var(--line);
     padding: 5px 10px;
     border-radius: 999px;
@@ -67,6 +83,7 @@
     height: 6px;
     border-radius: 50%;
     background: linear-gradient(135deg, #6f4fe0, #ff5a2b);
+    flex-shrink: 0;
   }
 
   h1{
@@ -90,23 +107,34 @@
   section.project{
     --accent: #121214;
     --accent-soft: #f0f0f1;
+    --accent-wash: rgba(18,18,20,0.025);
     position: relative;
     padding: 72px 0;
     border-bottom: 1px solid var(--line);
+    background: var(--accent-wash);
   }
 
   section.project::before{
     content: "";
     position: absolute;
     top: 0;
-    left: 28px;
-    width: 44px;
+    left: 0;
+    width: 100%;
     height: 3px;
     background: var(--accent);
   }
 
-  section.journal{ --accent: #6f4fe0; --accent-soft: #f1ecfd; }
-  section.walk{ --accent: #ff5a2b; --accent-soft: #ffece2; }
+  section.journal{
+    --accent: #6f4fe0;
+    --accent-soft: #f1ecfd;
+    --accent-wash: rgba(111,79,224,0.055);
+  }
+
+  section.walk{
+    --accent: #ff5a2b;
+    --accent-soft: #ffece2;
+    --accent-wash: rgba(255,90,43,0.05);
+  }
 
   .index-no{
     font-family: var(--mono);
@@ -114,7 +142,7 @@
     font-size: clamp(3.2rem, 8vw, 5rem);
     line-height: 1;
     color: var(--accent-soft);
-    margin: 28px 0 -8px;
+    margin: 4px 0 -8px;
     letter-spacing: -0.03em;
     user-select: none;
   }
@@ -157,12 +185,11 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--ink);
     text-decoration: none;
     font-weight: 700;
     font-size: 0.95rem;
     border-bottom: 2px solid var(--accent);
-    padding-bottom: 3px;
+    padding: 4px 0 5px;
   }
 
   .repo-link .arrow{
@@ -182,13 +209,14 @@
 
   .filmstrip img{
     width: 168px;
+    height: auto;
     flex-shrink: 0;
     border: 1px solid var(--line);
     border-radius: 2px;
     box-shadow: 0 16px 30px -18px rgba(17,17,20,0.35);
     background: #fff;
     margin-left: -34px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
   }
 
@@ -199,7 +227,8 @@
   .filmstrip img:nth-child(3){ transform: rotate(-3deg) translateY(-10px); }
   .filmstrip img:nth-child(4){ transform: rotate(6deg) translateY(6px); }
 
-  .filmstrip img:hover{
+  .filmstrip img:hover,
+  .filmstrip img:focus-visible{
     transform: rotate(0deg) translateY(-8px) scale(1.08);
     z-index: 5;
     box-shadow: 0 24px 40px -16px rgba(17,17,20,0.4);
@@ -216,6 +245,7 @@
 
   .demo-video{
     width: 190px;
+    height: auto;
     flex-shrink: 0;
     display: block;
     border: 1px solid var(--line);
@@ -241,6 +271,7 @@
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--accent);
+    font-variant-numeric: tabular-nums;
   }
 
   .stat .label{
@@ -260,20 +291,26 @@
 
   .cv-link{
     display: inline-block;
-    color: var(--ink);
     text-decoration: none;
     font-weight: 700;
     font-size: 1.05rem;
     border-bottom: 2px solid var(--ink);
-    padding-bottom: 2px;
+    padding: 4px 0 5px;
   }
 
   .cv-link:hover{ opacity: 0.6; }
 
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .filmstrip img,
+    .repo-link .arrow{
+      transition: none !important;
+    }
+  }
+
   @media (max-width: 700px){
     header.hero{ padding: 76px 0 48px; }
     section.project{ padding: 52px 0; }
-    section.project::before{ left: 28px; }
     .filmstrip{
       overflow-x: auto;
       padding-bottom: 16px;
@@ -296,57 +333,61 @@
   </header>
 </div>
 
-<main class="wrap">
+<main>
 
   <section class="project journal">
-    <p class="index-no">01</p>
-    <div class="project-copy">
-      <h2>Journal Onboarding</h2>
-      <p>A mobile onboarding flow for a journaling app, built with React Native and Expo. Focused on a calm, text-driven experience that ties together form handling, navigation, and backend integration with Supabase into one coherent flow.</p>
-      <ul class="stack">
-        <li>React Native</li>
-        <li>Expo</li>
-        <li>TypeScript</li>
-        <li>Supabase</li>
-        <li>REST API</li>
-      </ul>
-      <a class="repo-link" href="https://github.com/project5662/journal-onboarding" target="_blank" rel="noopener">
-        View on GitHub <span class="arrow">↗</span>
-      </a>
-    </div>
-    <div class="filmstrip">
-      <img src="assets/img/journal-0.png" alt="Journal Onboarding – sign up screen">
-      <img src="assets/img/journal-1.png" alt="Journal Onboarding – name screen">
-      <img src="assets/img/journal-3.png" alt="Journal Onboarding – frequency screen">
-      <img src="assets/img/journal-2.png" alt="Journal Onboarding – reflection screen">
+    <div class="wrap">
+      <p class="index-no">01</p>
+      <div class="project-copy">
+        <h2>Journal Onboarding</h2>
+        <p>A mobile onboarding flow for a journaling app, built with React Native and Expo. Focused on a calm, text-driven experience that ties together form handling, navigation, and backend integration with Supabase into one coherent flow.</p>
+        <ul class="stack">
+          <li>React Native</li>
+          <li>Expo</li>
+          <li>TypeScript</li>
+          <li>Supabase</li>
+          <li>REST API</li>
+        </ul>
+        <a class="repo-link" href="https://github.com/project5662/journal-onboarding" target="_blank" rel="noopener">
+          View on GitHub <span class="arrow">↗</span>
+        </a>
+      </div>
+      <div class="filmstrip">
+        <img src="assets/img/journal-0.png" width="231" height="480" alt="Journal Onboarding – sign up screen">
+        <img src="assets/img/journal-1.png" width="227" height="480" alt="Journal Onboarding – name screen">
+        <img src="assets/img/journal-3.png" width="229" height="480" alt="Journal Onboarding – frequency screen">
+        <img src="assets/img/journal-2.png" width="233" height="480" alt="Journal Onboarding – reflection screen">
+      </div>
     </div>
   </section>
 
   <section class="project walk">
-    <p class="index-no">02</p>
-    <div class="project-copy">
-      <h2>Micro Walk — Step Counter</h2>
-      <p>An iOS feature built with Expo/React Native: a live, HealthKit-backed step counter paired with a guided 2-minute walk featuring an animated figure, a progress ring, and a Lock Screen / Dynamic Island activity that ticks down natively. Everything runs on-device, with no backend at all.</p>
-      <ul class="stack">
-        <li>React Native</li>
-        <li>Expo</li>
-        <li>TypeScript</li>
-        <li>HealthKit</li>
-        <li>Live Activities</li>
-        <li>iOS</li>
-      </ul>
-      <a class="repo-link" href="https://github.com/project5662/step-counter-test-app" target="_blank" rel="noopener">
-        View on GitHub <span class="arrow">↗</span>
-      </a>
-    </div>
-    <div class="walk-visual">
-      <video class="demo-video" src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
-        Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
-      </video>
-      <div class="stat-row">
-        <div class="stat"><span class="num">2 min</span><span class="label">guided walk</span></div>
-        <div class="stat"><span class="num">0</span><span class="label">network calls</span></div>
-        <div class="stat"><span class="num">100%</span><span class="label">on-device</span></div>
+    <div class="wrap">
+      <p class="index-no">02</p>
+      <div class="project-copy">
+        <h2>Micro Walk — Step Counter</h2>
+        <p>An iOS feature built with Expo/React Native: a live, HealthKit-backed step counter paired with a guided 2-minute walk featuring an animated figure, a progress ring, and a Lock Screen / Dynamic Island activity that ticks down natively. Everything runs on-device, with no backend at all.</p>
+        <ul class="stack">
+          <li>React Native</li>
+          <li>Expo</li>
+          <li>TypeScript</li>
+          <li>HealthKit</li>
+          <li>Live Activities</li>
+          <li>iOS</li>
+        </ul>
+        <a class="repo-link" href="https://github.com/project5662/step-counter-test-app" target="_blank" rel="noopener">
+          View on GitHub <span class="arrow">↗</span>
+        </a>
+      </div>
+      <div class="walk-visual">
+        <video class="demo-video" width="678" height="1196" src="assets/video/micro-walk-demo.mp4" poster="assets/video/micro-walk-poster.jpg" controls preload="metadata" playsinline muted>
+          Your browser doesn't support embedded video. <a href="assets/video/micro-walk-demo.mp4">Download the demo</a> instead.
+        </video>
+        <div class="stat-row">
+          <div class="stat"><span class="num">2 min</span><span class="label">guided walk</span></div>
+          <div class="stat"><span class="num">0</span><span class="label">network calls</span></div>
+          <div class="stat"><span class="num">100%</span><span class="label">on-device</span></div>
+        </div>
       </div>
     </div>
   </section>
