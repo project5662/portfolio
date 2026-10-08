@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local AI, Applied AI, ML Projects — Portfolio</title>
+<meta name="description" content="Applied AI / ML projects: Local Agent.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <a class="back-link" href="index.html">← Portfolio</a>
+    <p class="eyebrow">Local AI, Applied AI, ML</p>
+    <h1>Projects.</h1>
+    <p class="scroll-hint">Scroll down for details <span class="chevron">↓</span></p>
+  </header>
+</div>
+
+<main class="wrap" id="projects">
+
+  <section class="project">
+    <p class="index-no index-no--1" aria-hidden="true">01</p>
+    <div class="project-copy">
+      <p class="kicker"><span class="bar"></span>Applied AI · Local LLM Agent</p>
+      <h2>Local Agent</h2>
+      <p>A fully offline coding and inventory assistant: a local LLM (via Ollama) with a RAG pipeline over a project's own files, tool-calling, and a custom set of deterministic tools for a simulated warehouse scenario (fixed-width, COBOL-era-style inventory data). No API keys, no cloud calls — everything, including the embedding/vector search and the web UI, runs on-device. Ships as a terminal app, a mobile-friendly bilingual web UI, and in Docker.</p>
+      <ul class="stack">
+        <li>Python</li>
+        <li>Ollama (Qwen2.5-Coder 7B/14B)</li>
+        <li>RAG</li>
+        <li>ChromaDB</li>
+        <li>FastAPI</li>
+        <li>Docker</li>
+        <li>Tool calling</li>
+      </ul>
+      <a class="repo-link" href="https://github.com/project5662/local-agent" target="_blank" rel="noopener">
+        View on GitHub <span class="arrow">↗</span>
+      </a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><span class="num">0</span><span class="label">cloud API calls</span></div>
+      <div class="stat"><span class="num">46</span><span class="label">tests passing</span></div>
+      <div class="stat"><span class="num">100%</span><span class="label">on-device</span></div>
+    </div>
+    <div class="media-stack">
+      <!-- TODO: lägg till demofilmen här när filen finns tillgänglig, t.ex.:
+      <figure>
+        <div class="media-frame--wide">
+          <video src="assets/video/local-agent-demo.mp4" poster="assets/video/local-agent-poster.jpg" controls preload="metadata" playsinline muted></video>
+        </div>
+        <figcaption>Demo: a full conversation in the web UI</figcaption>
+      </figure>
+      -->
+      <figure>
+        <div class="media-frame--wide">
+          <img src="assets/img/local-agent-1.png" alt="The web UI answering a total stock question for ART-00004">
+        </div>
+        <figcaption>Asking for a stock total</figcaption>
+      </figure>
+      <figure>
+        <div class="media-frame--wide">
+          <img src="assets/img/local-agent-2.png" alt="A follow-up chart request answered with a text-based bar chart of stock distribution across warehouse locations">
+        </div>
+        <figcaption>Follow-up: a chart of stock distribution, remembered from the same session</figcaption>
+      </figure>
+      <figure>
+        <div class="media-frame--wide">
+          <img src="assets/img/local-agent-3.png" alt="A further follow-up asking for the per-location stock breakdown of the same article">
+        </div>
+        <figcaption>Follow-up: per-location breakdown of the same article</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

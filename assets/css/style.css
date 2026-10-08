@@ -375,6 +375,42 @@ section.project{
   color: var(--muted);
 }
 
+/* Wide variant of .media-row/.media-frame, for landscape screenshots and
+   screen-recorded video (desktop/web UI demos) rather than phone screens. */
+.media-stack{
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.media-stack figure{
+  margin: 0;
+}
+
+.media-frame--wide{
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 10px 20px -16px rgba(17,17,20,0.25);
+  background: #000;
+}
+
+.media-frame--wide img,
+.media-frame--wide video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.media-stack figcaption{
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .repo-link .arrow{
