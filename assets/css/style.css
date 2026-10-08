@@ -411,6 +411,43 @@ section.project{
   color: var(--muted);
 }
 
+/* Compact row of landscape screenshots, sized like .filmstrip/.media-row
+   but wide enough not to crop desktop/web UI screenshots. */
+.media-row-sm{
+  margin-top: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.media-row-sm figure{
+  margin: 0;
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.media-frame--wide-sm{
+  width: 260px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow: 0 10px 20px -16px rgba(17,17,20,0.25);
+  background: #fff;
+}
+
+.media-frame--wide-sm img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.media-row-sm figcaption{
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .repo-link .arrow{
