@@ -422,12 +422,12 @@ section.project{
 
 .media-row-sm figure{
   margin: 0;
-  width: 260px;
+  width: 360px;
   flex-shrink: 0;
 }
 
 .media-frame--wide-sm{
-  width: 260px;
+  width: 360px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 2px;
